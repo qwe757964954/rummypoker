@@ -116,18 +116,14 @@ export class RummyPoker {
                     }
                     const remainingCardPoints = remainingCards.reduce((sum, card) => sum + this.util.getCardPoint(card), 0);
                     let currentScore = groupScore + remainingCardPoints;
-
                     if (this.isBetterResult(currentScore, bestResult, remainingCards, card_list)) {
-                        console.log("Updating bestResult:", JSON.stringify(currentResult), "currentScore:", currentScore);
                         bestResult = { groups: currentResult, score: currentScore };
                     }
-                    
                 }
             }
             if (bestResult.score !== Infinity) {
                 dp[state] = bestResult; // 只存非 Infinity 结果
             }
-            // dp[state] = bestResult;
             return bestResult;
         };
 
@@ -283,32 +279,29 @@ export class RummyPoker {
         remainingCards: number[],
         allCards: number[],
     ): boolean {
-        console.log(`Comparing currentScore: ${currentScore} with bestResult.score: ${bestResult.score}`);
-    
-        if (bestResult.score === Infinity) {
-            console.log("Updating because bestResult is still Infinity.");
-            return true;
-        }
-    
-        if (currentScore < bestResult.score) {
-            console.log("Updating because currentScore is smaller.");
-            return true;
-        }
-    
-        if (currentScore > bestResult.score) {
-            console.log("Not updating because currentScore is larger.");
-            return false;
-        }
-    
         const bestRemainingCards = this.getRemainingCards(allCards, bestResult.groups);
-        if (remainingCards.length < bestRemainingCards.length) {
-            console.log("Updating because remainingCards are fewer.");
-            return true;
-        }
+        // Priority 1: Favor results with `checkResult` being true
+        // console.log(checkResult)
+        // if (checkResult && !bestCheckResult) return true;
+        // if (!checkResult && bestCheckResult) return false;
+        
+        if (remainingCards.length === 1 && bestRemainingCards.length > 1) return true;
+        if (remainingCards.length > 1 && bestRemainingCards.length === 1) return false;
+
+        // const remainingCardPoints = remainingCards.reduce((sum, card) => sum + this.util.getCardPoint(card), 0);
+        // const bestRemainingCardPoints = bestRemainingCards.reduce((sum, card) => sum + this.util.getCardPoint(card), 0);
+        
+        // // Priority 2: Favor results with lower remaining card points
+        // if (remainingCardPoints < bestRemainingCardPoints) return true;
+        // if (remainingCardPoints > bestRemainingCardPoints) return false;
     
-        return false;
+        // Priority 3: Favor results with higher score
+        if (currentScore < bestResult.score) return true;
+        if (currentScore > bestResult.score) return false;
+    
+        // Priority 4: Favor results with fewer remaining cards
+        return remainingCards.length < bestRemainingCards.length;
     }
-    
 
     private calculateCombinedScore(checkResult:boolean,groups: CardGroup[], remainingCards: number[]): number {
         if (remainingCards.length === 0 && this.checkLife(groups)) {
