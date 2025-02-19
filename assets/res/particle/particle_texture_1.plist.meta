@@ -1,0 +1,13 @@
+{
+  "ver": "1.0.8",
+  "importer": "sprite-atlas",
+  "imported": false,
+  "uuid": "1977c39d-9294-4944-9c6d-cafbdd923cfa",
+  "files": [],
+  "subMetas": {},
+  "userData": {
+    "atlasTextureName": "particle_texture_1.png",
+    "format": 2,
+    "uuid": "1977c39d-9294-4944-9c6d-cafbdd923cfa"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "ver": "1.0.8",
+  "importer": "sprite-atlas",
+  "imported": true,
+  "uuid": "207ae04b-0697-4712-9403-50c58c614887",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {
+    "11475": {
+      "importer": "sprite-frame",
+      "uuid": "207ae04b-0697-4712-9403-50c58c614887@11475",
+      "displayName": "",
+      "id": "11475",
+      "name": "slots777_1",
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": 0,
+        "offsetY": -2,
+        "trimX": 11,
+        "trimY": 13,
+        "width": 106,
+        "height": 105,
+        "rawWidth": 128,
+        "rawHeight": 128,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [],
+          "indexes": [],
+          "uv": [],
+          "nuv": [],
+          "minPos": [],
+          "maxPos": []
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "e2736ae3-83eb-4e8c-bb48-723262c06a36@6c48a",
+        "atlasUuid": "207ae04b-0697-4712-9403-50c58c614887"
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "atlasTextureName": "slots777_1.png",
+    "format": 2,
+    "uuid": "207ae04b-0697-4712-9403-50c58c614887",
+    "textureUuid": "e2736ae3-83eb-4e8c-bb48-723262c06a36@6c48a"
+  }
+}

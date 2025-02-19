@@ -1,0 +1,11 @@
+{
+  "name": "TestProj",
+  "uuid": "42638dc3-36d9-4895-8157-758e8d781431",
+  "creator": {
+    "version": "3.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "lodash": "^4.17.21"
+  }
+}
