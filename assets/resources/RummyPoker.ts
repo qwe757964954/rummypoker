@@ -116,7 +116,7 @@ export class RummyPoker {
                     }
                     const remainingCardPoints = remainingCards.reduce((sum, card) => sum + this.util.getCardPoint(card), 0);
                     let currentScore = groupScore + remainingCardPoints;
-                    if (this.isBetterResult(currentScore, bestResult, remainingCards, card_list)) {
+                    if (this.isBetterResult(currentScore, bestResult, remainingCards, card_list,canHu)) {
                         bestResult = { groups: currentResult, score: currentScore };
                     }
                 }
@@ -278,6 +278,7 @@ export class RummyPoker {
         bestResult: { groups: CardGroup[]; score: number },
         remainingCards: number[],
         allCards: number[],
+        checkResult:boolean
     ): boolean {
         const bestRemainingCards = this.getRemainingCards(allCards, bestResult.groups);
         // Priority 1: Favor results with `checkResult` being true
@@ -285,7 +286,7 @@ export class RummyPoker {
         // if (checkResult && !bestCheckResult) return true;
         // if (!checkResult && bestCheckResult) return false;
         
-        if (remainingCards.length === 1 && bestRemainingCards.length > 1) return true;
+        if (checkResult && remainingCards.length === 1 && bestRemainingCards.length > 1) return true;
         if (remainingCards.length > 1 && bestRemainingCards.length === 1) return false;
 
         // const remainingCardPoints = remainingCards.reduce((sum, card) => sum + this.util.getCardPoint(card), 0);

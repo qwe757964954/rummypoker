@@ -169,7 +169,11 @@ export class Rocket extends Component {
             0x38, 0x3C, 0x19,
             0x1A, 0x1C, 0x04,
             0x09, 0x0A, 0x42, 0x41, 0x25]
-        let bestGroups = RummyPoker.getInstance().rummyGroup(cards26);
+        let cards27 = [0x38, 0x39, 0x3A,
+            0x01, 0x08, 0x09,
+            0x13, 0x18, 0x1C,
+            0x21, 0x23, 0x29, 0x31, 0x42]
+        let bestGroups = RummyPoker.getInstance().rummyGroup(cards27);
         
         console.log("bestGroups", bestGroups);
         // let remainingCards = [7,7,8];

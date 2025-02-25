@@ -4,7 +4,7 @@ export default class RummyUtil {
     public CARD_KING = 0x41; // Example Joker value
     public CARD_KING_2 = 0x42; // Example Joker value
     private MagicValueIsKing = false;
-    private MagicValue = 12; // Example Magic value for joker
+    private MagicValue = 10; // Example Magic value for joker
     public G_SUIT_NUM: number = 16;
     private static _instance: RummyUtil | null = null;
     private m_cbCardDataArray: number[] = [
